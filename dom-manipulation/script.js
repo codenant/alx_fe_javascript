@@ -1,4 +1,3 @@
-
 let quoteDisplay = document.getElementById('quoteDisplay');
 // Show new quote button
 let newQuote = document.getElementById('newQuote');
@@ -32,6 +31,9 @@ function addQuote(createAddQuoteForm){
     let quoteText = newQuoteText.value;
     let quoteCategory = newQuoteCategory.value;
 
+    // Store quotes into local storge
+    localStorage.setItem('Quotes', JSON.stringify(quotes))
+
     if(quoteText && quoteCategory){
         // Create new quote object that can be pushed to the quotes area and that takes input values
         let newQuotes = {text: quoteText, category: quoteCategory};
@@ -50,6 +52,23 @@ function addQuote(createAddQuoteForm){
             alert('Please enter a quote and a category.')
     }
 }
+
+// Function that retrieves quotes from the local storage and displays it on inititaion
+function retrieveStorage(){
+    let storedQuotes = localStorage.getItem('Quotes');
+    let parsedQuotes = JSON.parse(storedQuotes);
+    // console.log(parsedQuotes);
+
+    quotes.push(...parsedQuotes);
+    parsedQuotes.map((quotes) =>{
+        let paragraph = document.createElement('p');
+        let finalInput = document.createTextNode(`${quotes.text} - ${quotes.category}`);
+        // Append the input to the paragraph
+        paragraph.appendChild(finalInput);
+        quoteDisplay.appendChild(paragraph);
+    });
+}
+retrieveStorage();
 
 
 
