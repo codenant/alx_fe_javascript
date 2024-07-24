@@ -27,7 +27,7 @@ function showRandomQuote(){
 newQuote.addEventListener('click', showRandomQuote);
 
 // New quote addition
-function addQuote(){
+function addQuote(createAddQuoteForm){
     // Retrieving value from input fields
     let quoteText = newQuoteText.value;
     let quoteCategory = newQuoteCategory.value;
