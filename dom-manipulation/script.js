@@ -15,6 +15,21 @@ let quotes = [
     {text: "Innovation distinguishes between a leader and a follower.", category: "Technology" }
 ];
 
+// Export quotes as JSON
+download.addEventListener('click', () =>{
+    // Convert the quotes array into a string
+    let quotesJSON = JSON.stringify(quotes);
+    // Create blob
+    let blob = new Blob([quotesJSON], {type: "application/json"});
+    // Create blob URL
+    let downloadURL = URL.createObjectURL(blob);
+    let link = document.createElement('a');
+    link.href = downloadURL;
+    link.download = 'quotes.json';
+    // Trigger download
+    link.click();
+})
+
 // Random quote displayer
 function showRandomQuote(){
     // Applying Math.random() property to trigger random selection
@@ -74,21 +89,6 @@ function retrieveStorage(){
     });
 }
 retrieveStorage();
-
-// Export quotes as JSON
-download.addEventListener('click', () =>{
-    // Convert the quotes array into a string
-    let quotesJSON = JSON.stringify(quotes);
-    // Create blob
-    let blob = new Blob([quotesJSON], {type: "application/json"});
-    // Create blob URL
-    let downloadURL = URL.createObjectURL(blob);
-    let link = document.createElement('a');
-    link.href = downloadURL;
-    link.download = 'quotes.json';
-    // Trigger download
-    link.click();
-})
 
 // Import JSON file
 function importFromJsonFile(event) {
