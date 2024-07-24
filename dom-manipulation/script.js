@@ -33,14 +33,21 @@ function addQuote(createAddQuoteForm){
     let quoteCategory = newQuoteCategory.value;
 
     if(quoteText && quoteCategory){
+        // Create new quote object that can be pushed to the quotes area and that takes input values
         let newQuotes = {text: quoteText, category: quoteCategory};
         quotes.push(newQuotes);
+
+        let paragraph = document.createElement('p');
+        let finalInput = document.createTextNode(`${quoteText} - ${quoteCategory}`);
+        // Append the input to the paragraph
+        paragraph.appendChild(finalInput);
+        quoteDisplay.appendChild(paragraph);
 
         // Clear input fields
         newQuoteText.value = " ";
         newQuoteCategory.value = " ";
     } else {
-        alert('Please enter a quote and a category.')
+            alert('Please enter a quote and a category.')
     }
 }
 
