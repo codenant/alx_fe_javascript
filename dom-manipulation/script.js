@@ -89,7 +89,7 @@ function addQuote(createAddQuoteForm){
 
 // Fetch API with a local server
 const apiURL = 'https://jsonplaceholder.typicode.com/posts';
-async function fromServer(){
+async function fetchQuotesFromServer(){
     try {
         let response = await fetch(apiURL);
         let data = await response.json();
@@ -102,7 +102,7 @@ async function fromServer(){
         return [];
     }
 }
-fromServer();
+fetchQuotesFromServer();
 
 async function toServer(quote){
     try {
@@ -191,7 +191,7 @@ retrieveStorage();
 
 // Syncing
 function sync() {
-    fromServer().then(serverQuotes => {
+    fetchQuotesFromServer().then(serverQuotes => {
         // Retrieve local quotes
         let localQuotes = JSON.parse(localStorage.getItem('Quotes')) || [];
 
