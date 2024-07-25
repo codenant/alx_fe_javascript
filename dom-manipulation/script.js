@@ -190,7 +190,7 @@ function retrieveStorage(){
 retrieveStorage();
 
 // Syncing
-function sync() {
+function syncQuotes() {
     fetchQuotesFromServer().then(serverQuotes => {
         // Retrieve local quotes
         let localQuotes = JSON.parse(localStorage.getItem('Quotes')) || [];
