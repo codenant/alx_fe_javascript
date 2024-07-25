@@ -146,7 +146,7 @@ function filterQuotes() {
 
     // Notify user
     let notification = document.createElement('div');
-    notification.textContent = 'Quotes have been updated.';
+    notification.textContent = "Quotes synced with server!";
     document.body.appendChild(notification);
     
     // Remove notification
