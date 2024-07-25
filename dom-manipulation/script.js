@@ -219,7 +219,7 @@ function resolveConflicts(localQuotes, serverQuotes) {
     return Array.from(allQuotesMap.values());
 }
 // Sync frequency
-setInterval(sync, 30000);
+setInterval(syncQuotes, 30000);
 
 // Import JSON file
 function importFromJsonFile(event) {
