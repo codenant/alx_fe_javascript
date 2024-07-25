@@ -129,10 +129,13 @@ function retrieveStorage(){
         quoteDisplay.appendChild(paragraph);
 
         // Populate dropdown menu
-        let options = document.createElement('option');
-        options.setAttribute('value', quotes.category.toLowerCase());
-        options.textContent = quotes.category;
-        categoryFilter.appendChild(options);
+        function populateCategories (){
+            let options = document.createElement('option');
+            options.setAttribute('value', quotes.category.toLowerCase());
+            options.textContent = quotes.category;
+            categoryFilter.appendChild(options);
+        }
+        populateCategories();
     });
     // Retrieve the last selected category
     let selectedCategory = localStorage.getItem('Last Selected Category');
